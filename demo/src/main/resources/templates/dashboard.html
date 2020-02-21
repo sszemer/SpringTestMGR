@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>TestMGR</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<table class="dashboard">
+    <thead class="thead">
+    <tr>
+        <td width="20%">
+            Passed
+        </td>
+        <td width="20%">
+            Failed
+        </td>
+        <td width="20%">
+            Unexecuted
+        </td>
+        <td width="20%">
+            Queued
+        </td>
+        <td width="20%">
+            Total
+        </td>
+    </tr>
+    </thead>
+    <tbody class="tbody">
+    <tr>
+        <td th:text="${passed}"></td>
+        <td th:text="${failed}"></td>
+        <td th:text="${unexecuted}"></td>
+        <td th:text="${queued}"></td>
+        <td th:text="${total}"></td>
+    </tr>
+    </tbody>
+</body>
+</html>

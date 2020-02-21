@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TestMGR</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script>
+  function resizeIframe(obj) {
+     obj.style.height = 0;
+    obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+  }
+</script>
+</head>
+<body>
+    <header class="bubble">
+        <p class="logo">
+            TestMGR
+        </p>
+        <ul>
+            <li><a href="/dashboard" target="content">Dashboard</a></li>
+            <li><a href="/all?status=failed" target="content">Failed</a></li>
+            <li><a href="/all?status=passed" target="content">Passed</a></li>
+            <li><a href="/all?status=unexecuted" target="content">Unexecuted</a></li>
+            <li><a href="/all?status=queued" target="content">Queued</a></li>
+            <li><a href="/all" target="content">All</a></li>
+        </ul>
+    </header>
+    <main class="iframe-container">
+        <iframe class="bubble" name="content" src="/dashboard" onload="resizeIframe(this)"></iframe>
+    </main>
+    <footer class="bubble">
+        <a href="mailto:s.szemer@gmail.com?Subject=TestMGR">s.szemer@gmail.com</a>
+    </footer>
+    </body>
+</html>

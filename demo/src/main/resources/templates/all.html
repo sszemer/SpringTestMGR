@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>TestMGR</title>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script>
+        function toggle(source) {
+    var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] != source)
+            checkboxes[i].checked = source.checked;
+    }
+}
+    </script>
+</head>
+<body>
+<form method="post">
+    <table class="allTests">
+        <thead class="thead">
+        <tr>
+            <td width="5%">
+                Run
+                <input type="checkbox" name="checkAll" onclick="toggle(this)">
+            </td>
+            <td width="5%">
+                ID
+            </td>
+            <td width="10%">
+                Result
+            </td>
+            <td width="40%">
+                Name
+            </td>
+            <td width="40%">
+                Failure
+            </td>
+        </tr>
+        </thead>
+        <tbody class="tbody">
+        <tr th:each="test : ${tests}">
+            <td><input type="checkbox" name="id" th:value="${test.id}"></td>
+            <td th:text="${test.id}"></td>
+            <td th:text="${test.result}"></td>
+            <td th:text="${test.name}"></td>
+            <td th:text="${test.failure}"></td>
+        </tr>
+        <br/>
+        </tbody>
+    </table>
+    <input type="submit" value="queue" formaction="?status=queued">
+    <input type="submit" value="pass" formaction="?status=passed">
+    <input type="submit" value="fail" formaction="?status=failed">
+    <input type="submit" value="unexecute" formaction="?status=unexecuted">
+</form>
+</body>
+</html>
